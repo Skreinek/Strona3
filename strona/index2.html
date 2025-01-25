@@ -1,0 +1,340 @@
+<html>
+<body>
+
+<div class="start">
+    <p id="Text1" class="Znikanie">ZGADNIJ O JAKIEJ LICZBIE MYŚLĘ!</p><br>
+    <p id="Text2" class="Znikanie Napisy">0011001100110011</p><br>
+    <p id="Text3" class="Znikanie Napisy">1100110011001100</p><br>
+    <button id="p2" class="Znikanie Przycisk">LATWY</button>
+    <button id="p1" class="Znikanie Przycisk">START</button>
+    <button id="p3" class="Znikanie Przycisk">TRUDNY</button>
+</div>
+
+</body>
+
+<style>
+@keyframes shake{
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+@keyframes start_animacja2{
+    from{
+        translate: 0vw 2vw;
+        height: 90%;
+        width: 90%;
+        margin-top: 0%;
+    
+    }
+    to{
+        margin-top: 10%;
+        height: 10vw;
+        width: 10vw;
+        position: relative;
+    }
+}
+@keyframes start_animacja{
+    from{
+    
+    }
+    to{
+        translate: 0vw 2vw;
+        height: 90%;
+        width: 90%;
+        margin-top: 0%;
+    }
+}
+@keyframes skala{
+    from{
+        font-size: 1.5vw;
+    }
+    to{
+        font-size: 1.7vw;
+    }
+    
+}
+
+@keyframes znikanie{
+    from{
+        opacity: 100%;
+    }
+    to{
+        opacity: 0%;
+    }
+    
+}
+@keyframes start{
+    from{
+        color: rgb(255, 255, 255);
+        text-shadow: 0.3vw 0.3vw 0.6vw #000000;
+    }
+    to{
+        color: rgba(255, 255, 255, 0);
+        text-shadow: 0.3vw 0.3vw 0.6vw #00000000;
+    }
+}
+@keyframes pudlo{
+    from{
+    
+    }
+    to{
+        background-position: 100% 0%;
+        background-size: 400% 400%;
+    }
+}
+
+body{
+    background-image: linear-gradient(rgb(87, 0, 95),rgb(0, 41, 65));
+    
+}
+
+.Znikanie{
+    animation-name: znikanie;
+    animation-duration: 1s;
+    animation-timing-function:ease-out;
+    animation-direction:normal;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+}
+#Text1{
+    font-size: 4vw;
+    margin: auto;
+    translate: 0vw 2vw;
+    color: rgb(255, 255, 255);
+    font-family: fantasy;
+    text-shadow: 0.3vw 0.3vw 0.6vw #000000;
+}
+#Text2{
+    transform: rotate(-5deg);
+    margin: auto;
+    translate: 1vw 2vw;
+}
+#Text3{
+    right: 0px;
+    transform: rotate(5deg);
+    translate: -1vw -6vw;
+}
+.Napisy{
+    position: absolute;
+    font-size: 1.5vw;
+    color: rgb(255, 217, 0);
+    font-family: fantasy;
+    text-shadow: 0.3vw 0.3vw 0.6vw #000000;
+    animation-name: skala;
+    animation-duration: 1s;
+    animation-timing-function:ease-out;
+    animation-direction:alternate;
+    animation-iteration-count:infinite;
+    animation-play-state: running;
+
+}
+.start {
+    position:absolute;
+    background: linear-gradient(45deg, rgba(0, 153, 255, 0.9), rgba(255, 13, 182, 0.5), rgba(255, 255, 255, 0.9));
+    background-size: 200% 200%;
+    background-position: 0% 100%;
+    margin:auto;
+    margin-top: auto;
+    left: 0; 
+     right: 0; 
+    margin-inline: auto; 
+    justify-content: center;
+    text-align: center; 
+    width: 100vw;
+    height: 14vw;
+    animation-name: start_animacja;
+    animation-duration: 1s;
+    animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+}
+.tlo {
+    position: relative;
+    z-index: -4;
+    margin:auto;
+    margin-top: 2%;
+    justify-content: center;
+    text-align: center;
+    width: 99.2vw;
+    height: 18vw;
+}
+#p1 {
+    
+}
+#p2 {
+    opacity: 0;
+    display: none;
+    
+}
+#p3 {
+    opacity: 0;
+    display: none;
+
+}
+.Przycisk{
+    margin: 1vw;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    font-size: 5vw;
+    font-family: fantasy;
+    background-image: linear-gradient(#f0405d,#9e2b3e);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    display: inline-block;
+    margin-top: 2vw;
+    height: 40%;
+    width: 20%;
+    border-radius: 10%;
+    border: none;
+    padding: 30%, 30%;
+    text-shadow: 0.3vw 0.3vw 0.6vw #000000;
+    box-shadow: 0.3vw 0.3vw 0.6vw #000000;
+}
+#p1:hover{
+    background-image: linear-gradient(#f39020,#a76316);
+}
+#p2:hover{
+    background-image: linear-gradient(#149e32,#0c581c);
+}
+#p3:hover{
+    background-image: linear-gradient(#942727,#4b1414);
+}
+.Przycisk:active{
+    color: rgb(163, 163, 163);
+}
+
+</style>
+<script>
+    
+    const p=document.getElementsByClassName("Przycisk");
+    const x=document.getElementsByClassName("start")[0];
+    const z=document.getElementsByClassName("Znikanie");
+    const v=document.getElementsByClassName("Napisy");
+    
+    for(let a=0; a<3; a++){
+            p[a].addEventListener("click", start);
+            p[a].addEventListener("click", dzwiek);
+            p[a].addEventListener("animationend", trudnosc);
+        }
+        
+    
+    
+    
+    function start(){
+        
+        
+        
+        p[0].style.animationPlayState = "running";
+        p[2].style.animationPlayState = "running";
+        
+
+        x.style.animationPlayState = "running";
+        
+        for(let a=0; a<3; a++){
+            z[a].style.animationName = "znikanie";
+            z[a].style.animationPlayState = "running";
+        }
+        v[0].style.animationIterationCount= "1";
+        v[1].style.animationIterationCount= "1";
+
+        for(let a=0; a<3; a++){
+            p[a].style.backgroundImage="linear-gradient(#f39020,#a76316)";
+            p[a].style.animationName = "start";
+            p[a].style.animationDuration= "1s";
+            p[a].style.animationTimingFunction="ease-out";
+            p[a].style.animationPlayState = "running";
+            p[a].style.pointerEvents= "none";
+        }
+        for(let a=0; a<3; a++){
+            p[a].removeEventListener("click", start);
+        }
+        
+       }
+    
+       function trudnosc(){
+        for(let a=0; a<3; a++){
+            p[a].style.animationName = "znikanie";
+            p[a].style.animationPlayState = "running";
+            p[a].style.animationDirection = "reverse";
+            p[a].style.display = "inline-block";
+            p[a].style.animationTimingFunction="ease-in";
+            a++;
+
+        }
+        
+        p[0].style.backgroundImage="linear-gradient(#20f34e,#16a735)";
+        p[2].style.backgroundImage="linear-gradient(#f04040,#9e2b2b)";
+        p[1].innerHTML="SREDNI";
+        p[1].style.animationName = "start";
+        p[1].style.animationDuration = "2s";
+        p[1].style.animationPlayState = "running";
+        p[1].style.animationDirection = "reverse";
+        p[1].style.animationTimingFunction="linear";
+        
+        for(let a=0; a<3; a++){
+            p[a].removeEventListener("click", start);
+            p[a].style.pointerEvents= "auto";
+            p[a].addEventListener("click", function () {
+                gra(a);});
+            p[a].removeEventListener("animationend", trudnosc);
+        }
+
+        x.style.animationName = "start_animacja2, shake, pudlo"
+        x.style.animationPlayState = "paused, paused, paused";
+        x.style.animationDuration = "3s, 0.5s, 3s";
+        x.style.animationIterationCount = "1, 6, 1";
+        x.style.animationDelay = "0s, 0s, 0s";
+        x.style.animationTimingFunction = "cubic-bezier(0.415, 1.275, 1.000, -0.600)";
+
+            
+           
+
+            
+
+
+    }
+
+    function gra(poziom){
+        for(let a=0; a<3; a++){
+            p[a].removeEventListener("click", gra);
+            p[a].style.display = "none";
+        }
+
+        x.style.marginTop = "10%";
+        x.style.height = "10vw";
+        x.style.width = "10vw";
+        x.style.position= "relative";
+        x.style.animationPlayState = "running";
+        
+        
+        
+
+
+        
+    }
+    
+    
+    
+    function dzwiek(){
+        var audio = document.getElementById("audio");
+        audio.play();
+    }
+
+</script>
+<audio id="audio" style="display: none;">
+    <source src="dzwiek.mp3" type="audio/mpeg">
+  </audio>
+</html>
