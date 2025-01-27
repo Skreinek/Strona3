@@ -3,24 +3,40 @@
 
 <div class="start">
     <p class="Znikanie Text1">ZGADNIJ O JAKIEJ LICZBIE MYŚLĘ!</p><br>
-    <p id="Text2" class="Znikanie Napisy">0011001100110011</p><br>
-    <p id="Text3" class="Znikanie Napisy">1100110011001100</p><br>
-    <button id="p2" class="Znikanie Przycisk">LATWY</button>
+    <p id="Text2" class="Znikanie Napisy"></p><br>
+    <p id="Text3" class="Znikanie Napisy"></p><br>
+    <button id="p2" class="Znikanie Przycisk">ŁATWY</button>
     <button id="p1" class="Znikanie Przycisk">START</button>
     <button id="p3" class="Znikanie Przycisk">TRUDNY</button>
 </div>
 
 <div Id="Gra">
-    <p class="Text1 Znikanie" style="font-size: 6vw;" >MOJA LICZBA</p><br>
-    <p class="Text1 Znikanie" style="font-size: 3vw; margin-top: 6vw;"></p><br>
-    <p id="Text4" class="Znikanie">? ? ? ?</p><br>
-         <div id="Pro"></div>
-    <div class="input">
-        <button id="p4" class="Przycisk">POMOC</button>
-            
-            <input id="Q1" autocomplete="off" type="text" step="1" pattern="\d*" maxlength="4">
+    <p class="Text1" style="font-size: 6vw;" >MOJA LICZBA</p><br>
+    <p class="Text1" style="font-size: 3vw; margin-top: 6vw;"></p><br>
+    <div>
+        <p id="Proby" class="Text1">PRÓBY: 0/10</p>
+        <ul class="lista Text1">
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+            <li class="lista2"></li>
+        </ul>
+    
+    </div>
+        <p id="Text4" class="Znikanie">? ? ? ?</p><br>
         
-        <button id="p5" class="Przycisk">ENTER</button>
+        <div id="Pro"></div>
+        
+        <div class="input">
+            <button id="p4" class="Przycisk">POMOC</button>
+                <input id="Q1" autocomplete="off" type="text" step="1" pattern="\d*" maxlength="4">
+            <button id="p5" class="Przycisk">ENTER</button>
     </div>
 
 </div>
@@ -49,6 +65,9 @@
 
 <audio id="audio6" style="display: none;">
     <source src="dzwiek6.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio7" style="display: none;">
+    <source src="dzwiek7.mp3" type="audio/mpeg">
 </audio>
 
 

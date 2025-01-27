@@ -8,15 +8,29 @@
     const T1=document.getElementsByClassName("Text1")[2];
     const T4=document.getElementById("Text4");
     const pro=document.getElementById("Pro");
-    let liczba = Math.floor((Math.random() * 9999) + 1000); 
+    const proby=document.getElementById("Proby");
+    const lista=document.getElementsByClassName("Lista2");
+    let liczba = Math.floor((Math.random() * 9999) + 1000);
+    let counter = 10;
 
     for(let a=0; a<5; a++){
-            p[a].addEventListener("click", start);
             p[a].addEventListener("click", dzwiek);
-            p[a].addEventListener("animationend", trudnosc);
         }
+        x.addEventListener("animationend", function(x){
+            if(x.animationName === "start_animacja")
+                trudnosc();
+            
+
+        });
+        p[1].addEventListener("click", start);
+        
+        setInterval(function () {
+            v[0].innerHTML = Math.floor((Math.random() * 9999999) + 1000000);
+            v[1].innerHTML = Math.floor((Math.random() * 9999999) + 1000000);}, 300);
         
         function start(){
+
+            
         
         
         
@@ -33,21 +47,20 @@
         v[0].style.animationIterationCount= "1";
         v[1].style.animationIterationCount= "1";
 
-        for(let a=0; a<3; a++){
-            p[a].style.backgroundImage="linear-gradient(#f39020,#a76316)";
-            p[a].style.animationName = "start";
-            p[a].style.animationDuration= "1s";
-            p[a].style.animationTimingFunction="ease-out";
-            p[a].style.animationPlayState = "running";
-            p[a].style.pointerEvents= "none";
-        }
-        for(let a=0; a<3; a++){
-            p[a].removeEventListener("click", start);
-        }
+            p[1].style.backgroundImage="linear-gradient(#f39020,#a76316)";
+            p[1].style.animationName = "start";
+            p[1].style.animationDuration= "1s";
+            p[1].style.animationTimingFunction="ease-out";
+            p[1].style.animationPlayState = "running";
+            p[1].style.pointerEvents= "none";
         
        }
     
        function trudnosc(){
+        
+        p[1].removeEventListener("click", start);
+        p[1].style.pointerEvents= "auto";
+        
         for(let a=0; a<3; a++){
             p[a].style.animationName = "znikanie";
             p[a].style.animationPlayState = "running";
@@ -66,7 +79,7 @@
 
         p[0].style.backgroundImage="linear-gradient(#20f34e,#16a735)";
         p[2].style.backgroundImage="linear-gradient(#f04040,#9e2b2b)";
-        p[1].innerHTML="SREDNI";
+        p[1].innerHTML="ŚREDNI";
         p[1].style.animationName = "start";
         p[1].style.animationDuration = "2.5s";
         p[1].style.animationPlayState = "running";
@@ -74,9 +87,7 @@
         p[1].style.animationTimingFunction="(1.000, 0.010, 1.000, 0.265)";
         
         for(let a=0; a<3; a++){
-            p[a].removeEventListener("click", start);
             p[a].addEventListener("click", dzwiek2);
-            p[a].style.pointerEvents= "auto";
             p[a].addEventListener("click", function () {
                 gra(a);});
             p[a].removeEventListener("animationend", trudnosc);
@@ -84,7 +95,7 @@
 
         x.style.animationName = "start_animacja2, shake, pudlo, disp"
         x.style.animationPlayState = "paused, paused, paused, paused";
-        x.style.animationDuration = "2s"; //
+        x.style.animationDuration = "2s, 0.5s, 2s, 2s"; //
         x.style.animationIterationCount = "1, 6, 1, 1";
         x.style.animationDelay = "0s, 0s, 0s 6.5s";
         x.style.animationTimingFunction = "cubic-bezier(0.415, 1.275, 1.000, -0.600)";
@@ -95,6 +106,7 @@
         g.style.animationName = "pudlo2"
         g.style.animationPlayState = "running";
         g.style.animationDuration = "1s";
+        x.style.display = "none";
     }
     function gra(poziom){
         
@@ -141,9 +153,12 @@
                 T4.innerHTML="? ? ? ?";
                 q.maxLength ="4";
             }
+            
         }
     
-    function enter(liczba, poziom){
+        
+
+        function enter(liczba, poziom){
 
         let wygrana = false;
         let r = 0;
@@ -211,17 +226,50 @@
             }
         
             if(wygrana==true){
-                T4.innerHTML="Gratuluje, zgadles";
-                setTimeout(() => {location.reload();}, 2000);
+                T1.innerHTML="Gratuluje, zgadłeś!";
+                T4.style.color = "#7af35b";
+                setTimeout(() => {location.reload();}, 3500);
                 dzwiek4();
+                p[4].style.pointerEvents= "none";
+                    if(poziom==0)
+                        T4.innerHTML=Math.floor(liczba/100);
+                    else if(poziom==1)
+                        T4.innerHTML=Math.floor(liczba/10);
+                    else
+                        T4.innerHTML=liczba;
+
             }
-            else
-            dzwiek5();
+            else{
+                
+                dzwiek5();
+                lista[10-counter].style.opacity = "100%";
+                lista[10-counter].innerHTML = q.value;
+                
+                counter--;
+                proby.innerHTML="PRÓBY: "+(10-counter)+"/10"
+                
+            }
+
+
+            if((counter < 4)&&(counter > 0)){
+                proby.style.color = "#fa6666";
+            }
+            else if(counter == 0){
+                setTimeout(() => {location.reload();}, 3500);
+                p[4].style.pointerEvents= "none";
+                proby.style.color = "#ff0000";
+
+                T1.innerHTML="A TO PECH :(";
+                T4.style.color = "#fa6666";
+                if(poziom==0)
+                    T4.innerHTML= Math.floor(liczba/100);
+                else if(poziom==1)
+                    T4.innerHTML= Math.floor(liczba/10);
+                else
+                    T4.innerHTML= liczba;
+                    dzwiek7()
+            }
             
-
-
-
-
     }
     function pomoc(poziom, l2, l3, l4){
         
@@ -249,13 +297,8 @@
         p[3].style.animationFillMode = "forwards";
         p[3].removeEventListener("click", function () { pomoc(poziom, tab[1], tab[2], tab[3]);});
         p[3].removeEventListener("click", dzwiek6);
-        
-
-
-    
-    
-            
     }
+
     function dzwiek(){
         var audio = document.getElementById("audio");
         audio.play();
@@ -277,7 +320,9 @@
     function dzwiek6(){
         var audio = document.getElementById("audio6");
             audio.play();
-
-
+    }
+    function dzwiek7(){
+        var audio = document.getElementById("audio7");
+            audio.play();
     }
     
